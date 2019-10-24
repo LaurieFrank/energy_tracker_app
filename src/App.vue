@@ -1,25 +1,19 @@
 <template lang="html">
   <div>
     <h1>Energy Tracker</h1>
-    <energy-tracker :energyTypes="energyTypes"></energy-tracker>
-    <GChart
-    type="ColumnChart"
-    :data="chartData"
-    :options="chartOptions"
-    />
+    <energy-tracker :organisedData="organisedData"></energy-tracker>
   </div>
 </template>
 
 <script>
 import EnergyTracker from './components/EnergyTracker.vue'
-import { GChart } from 'vue-google-charts'
 
 export default {
   name: 'app',
   data(){
     return {
-      energyData: {},
-      sortedEnergyData: []
+      data: {},
+      organisedData: []
     }
   },
   components: {
@@ -28,13 +22,15 @@ export default {
   mounted(){
     fetch('https://api.carbonintensity.org.uk/generation')
     .then(response => response.json())
-    // .then(energyData => this.data.generationmix = energyData)
-    .then(console.log(response))
-
-
-    // .then(this.sortedEnergyData.push(this.energyData.map(object) = Object.values(object)))
+    .then((fetchedData) => {
+      this.data = fetchedData.data.generationmix
+      let mappedObj = this.data.map((obj) => Object.values(obj))
+      mappedObj.unshift(["fuel", "%"]);
+      this.organisedData = mappedObj
     }
+  )
   }
+}
   </script>
 
   <style lang="css" scoped>

@@ -1,20 +1,22 @@
 <template lang="html">
   <div id="energyTracker">
+    <GChart
+    type="ColumnChart"
+    :data="organisedData"
+    :options="chartOptions"
+    />
   </div>
 </template>
 
 <script>
-import { eventBus } from '../main.js'
+import { GChart } from 'vue-google-charts'
+
 
 export default {
   name: "energy-tracker",
 
-props: ["energyTypes"]
+props: ["organisedData"]
 }
-// components: {
-//   GChart
-//   }
-// }
 </script>
 
 <style lang="css" scoped>
