@@ -15,7 +15,7 @@ import { GChart } from 'vue-google-charts'
 export default {
   name: "energy-tracker",
 
-props: ["organisedData"]
+props: ["organisedData", "chartOptions"]
 }
 </script>
 
