@@ -5,6 +5,11 @@
     :data="organisedData"
     :options="chartOptions"
     />
+    <GChart
+    type="PieChart"
+    :data="organisedData"
+    :options="chartOptions"
+    />
   </div>
 </template>
 
