@@ -13,18 +13,19 @@ export default {
   data(){
     return {
       "data":[
+        {
       "from": "2018-01-20T12:00Z",
       "to": "2018-01-20T12:30Z",
       energyTypes: [
         {"fuel": "Milk", "perc": 0.1},
         {"fuel": 'Cheese', "perc": 2.2},
-        {"fuel": 'Beans', "perc": 17.9},
+        {"fuel": 'Beans', "perc": 17.9}
       ],
     }]
-  },
+  };
   components: {
     "energy-tracker": EnergyTracker
-  },
+  }
 
 }
 </script>
